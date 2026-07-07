@@ -5,7 +5,7 @@ with open("youtube_trending_data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 df = pd.json_normalize(data["items"])
-print(df.columns.to_list())
+#print(df.columns.to_list())
 key_columns = [
     'id',
     'snippet.publishedAt',
@@ -20,4 +20,4 @@ key_columns = [
     'paidProductPlacementDetails.hasPaidProductPlacement'
 ]
 df_clean = df[key_columns]
-df_clean.to_html("tabella.html")
+print(df_clean.info())
